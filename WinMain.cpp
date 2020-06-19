@@ -1,1 +1,27 @@
-#include <Windows.h>
+#include "Window.h"
+
+// 메인 
+int CALLBACK WinMain(
+	HINSTANCE hInstance,
+	HINSTANCE hPrevInstance,
+	LPSTR lpCmdLine,
+	int nCmdShow
+) {
+	Window wnd(800, 300, "Maze Pioneer");
+
+	// 메시지 처리하기
+	MSG msg;
+	BOOL gResult;
+
+	while ((gResult = GetMessage(&msg, nullptr, 0, 0)) > 0)
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+
+	if (gResult == -1) {
+		return -1;
+	}
+
+	return msg.wParam;
+}

@@ -7,21 +7,35 @@ int CALLBACK WinMain(
 	LPSTR lpCmdLine,
 	int nCmdShow
 ) {
-	Window wnd(800, 300, "Maze Pioneer");
-
-	// 메시지 처리하기
-	MSG msg;
-	BOOL gResult;
-
-	while ((gResult = GetMessage(&msg, nullptr, 0, 0)) > 0)
+	try
 	{
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
-	}
+		Window wnd(800, 300, "Maze Pioneer");
 
-	if (gResult == -1) {
-		return -1;
-	}
+		// 메시지 처리하기
+		MSG msg;
+		BOOL gResult;
 
-	return msg.wParam;
+		while ((gResult = GetMessage(&msg, nullptr, 0, 0)) > 0)
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+
+		if (gResult == -1) {
+			return -1;
+		}
+		return msg.wParam;
+	}
+	catch (const Exception& e)
+	{
+		MessageBox(nullptr, e.what(), e.GetType(), MB_OK | MB_ICONEXCLAMATION);
+	}
+	catch (const std::exception& e)
+	{
+		MessageBox(nullptr, e.what(), "Standard Exception", MB_OK | MB_ICONEXCLAMATION);
+	}
+	catch (...)
+	{
+		MessageBox(nullptr, "No details available", "Unknown Exception", MB_OK | MB_ICONEXCLAMATION);
+	}
 }

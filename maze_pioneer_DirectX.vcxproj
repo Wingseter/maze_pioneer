@@ -155,8 +155,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Exception.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="WinDef.h" />
     <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="maze_pioneer_DirectX.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

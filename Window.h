@@ -3,6 +3,8 @@
 #include "Exception.h"
 #include "Keyboard.h"
 #include "Mouse.h"
+#include <optional>
+
 class Window
 {
 public:
@@ -39,6 +41,9 @@ public:
 	~Window();
 	Window(const Window&) = delete;
 	Window& operator = (const Window&) = delete;
+	void SetTitle(const std::string& title);
+	static std::optional<int> ProcessMessage();
+private:
 	static LRESULT CALLBACK HandleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 	static LRESULT CALLBACK HandleMsgThunk(HWND hWNd, UINT msg, WPARAM wParam, LPARAM lParam);
 	LRESULT HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;

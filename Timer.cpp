@@ -15,6 +15,6 @@ float Timer::Mark() noexcept
 }
 
 float Timer::Peek() const noexcept
-{
+{ 
 	return duration<float>(steady_clock::now() - last).count();
 }

@@ -3,6 +3,7 @@
 // 윈도우 7버진 이상부터 지원
 #define _WIN32_WINNT 0x0601
 #include <sdkddkver.h>
+#include <string>
 
 // 안쓰는 윈도우 기능 정리
 #define WIN32_LEAN_AND_MEAN

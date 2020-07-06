@@ -28,7 +28,7 @@ public:
 		int x;
 		int y;
 	public:
-		Event() noexcept :type(type), leftIsPressed(false), rightIsPressed(false), x(0), y(0) {}
+		Event() noexcept :type(Type::Invalid), leftIsPressed(false), rightIsPressed(false), x(0), y(0) {}
 		Event(Type type, const Mouse& parent) noexcept :
 			type(type),
 			leftIsPressed(parent.leftIsPressed),
